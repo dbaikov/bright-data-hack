@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AccessFox — Hackathon Pitch Deck</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: white; }
+
+  .slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 96px;
+  }
+
+  /* Print / PDF */
+  @media print {
+    body { background: white; }
+    .slide { page-break-after: always; width: 100vw; height: 56.25vw; }
+    .nav { display: none !important; }
+  }
+
+  /* Slide themes */
+  .s1 { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1e293b 100%); }
+  .s2 { background: linear-gradient(135deg, #0f172a 0%, #1a1040 60%, #0f172a 100%); }
+  .s3 { background: linear-gradient(135deg, #0a1628 0%, #0f2744 50%, #0f172a 100%); }
+  .s4 { background: linear-gradient(135deg, #0f172a 0%, #162032 60%, #1e293b 100%); }
+
+  .slide-number {
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    font-size: 13px;
+    color: #334155;
+    letter-spacing: 2px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 28px;
+    left: 40px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #3b82f6;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: #94a3b8; font-weight: 400; font-size: 13px; margin-left: 8px; vertical-align: middle; }
+
+  .tag {
+    display: inline-block;
+    background: #1e3a5f;
+    border: 1px solid #3b82f6;
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  h1 { font-size: 56px; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; }
+  h2 { font-size: 42px; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 20px; }
+  .blue { color: #3b82f6; }
+  .indigo { color: #6366f1; }
+  .green { color: #22c55e; }
+  .amber { color: #f59e0b; }
+  .muted { color: #94a3b8; }
+  .dim { color: #64748b; }
+
+  p.lead { font-size: 22px; color: #94a3b8; line-height: 1.6; max-width: 760px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px; }
+
+  .card {
+    background: rgba(30,41,59,0.8);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .card.highlight { border-color: #3b82f6; background: rgba(30,64,175,0.15); }
+  .card.green-hl { border-color: #22c55e; background: rgba(34,197,94,0.08); }
+  .card.amber-hl { border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+
+  .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+
+  .bullet { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+  .bullet-icon { flex-shrink: 0; width: 28px; height: 28px; background: #1e3a5f; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; margin-top: 2px; }
+  .bullet-text { font-size: 18px; color: #cbd5e1; line-height: 1.5; }
+
+  .score-ring {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    border: 6px solid #1e293b;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800;
+    position: relative;
+  }
+
+  .chip {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin: 3px 3px 0 0;
+  }
+  .chip-blue { background: #1e3a5f; color: #93c5fd; }
+  .chip-green { background: #14532d; color: #86efac; }
+  .chip-purple { background: #2e1065; color: #c4b5fd; }
+  .chip-amber { background: #451a03; color: #fcd34d; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, #334155, transparent); margin: 24px 0; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(30,41,59,0.9);
+    border: 1px solid #334155;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 6px 6px 0 0;
+  }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+  .badge .dot-blue { background: #3b82f6; }
+  .badge .dot-purple { background: #8b5cf6; }
+
+  .workflow-step {
+    display: flex; align-items: center; gap: 16px;
+    background: rgba(30,41,59,0.6);
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #1d4ed8; color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .step-label { font-size: 16px; color: #e2e8f0; font-weight: 600; }
+  .step-sub { font-size: 13px; color: #64748b; margin-top: 2px; }
+  .step-arrow { color: #334155; font-size: 20px; margin-left: auto; }
+
+  /* Navigation */
+  .nav {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 12px; z-index: 100;
+    background: rgba(15,23,42,0.9); border: 1px solid #334155;
+    border-radius: 24px; padding: 8px 20px;
+  }
+  .nav button {
+    background: none; border: none; color: #64748b; cursor: pointer;
+    font-size: 14px; padding: 4px 12px; border-radius: 16px; transition: all 0.2s;
+  }
+  .nav button:hover, .nav button.active { background: #1e293b; color: white; }
+  .nav .slide-counter { color: #475569; font-size: 13px; padding: 4px 8px; }
+
+  .slides-container { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; }
+  .slide { scroll-snap-align: start; }
+</style>
+</head>
+<body>
+
+<div class="slides-container" id="slides">
+
+<!-- ═══════════════════════════════════════════════ SLIDE 1: PROBLEM -->
+<div class="slide s1" id="slide-1">
+  <div class="logo">AccessFox <span>Healthcare Account-Readiness Intelligence</span></div>
+  <div class="slide-number">01 / 04</div>
+
+  <div class="tag">The Problem</div>
+  <h2>Healthcare adoption signals are <span class="blue">public</span> but <span class="amber">invisible</span></h2>
+  <p class="lead" style="margin-bottom:32px;">GTM and strategy teams discover account readiness manually, late, or not at all — long after a buying window has opened.</p>
+
+  <div class="two-col">
+    <div>
+      <div class="bullet">
+        <div class="bullet-icon">🌐</div>
+        <div class="bullet-text">Signals are scattered across hospital websites, job boards, clinical trial registries, press releases, and conference proceedings</div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">⏱️</div>
+        <div class="bullet-text">By the time readiness is obvious in CRM or static datasets, the window is already closing</div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">🔍</div>
+        <div class="bullet-text">No existing tool aggregates live public web signals into ranked, actionable account intelligence</div>
+      </div>
+    </div>
+    <div class="card amber-hl" style="display:flex;flex-direction:column;gap:14px;">
+      <h3 class="amber">Signal sources — all fragmented</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span class="chip chip-amber">Hospital websites</span>
+        <span class="chip chip-amber">Job postings</span>
+        <span class="chip chip-amber">ClinicalTrials.gov</span>
+        <span class="chip chip-amber">Press releases</span>
+        <span class="chip chip-amber">Physician profiles</span>
+        <span class="chip chip-amber">Conference activity</span>
+        <span class="chip chip-amber">Regulatory filings</span>
+        <span class="chip chip-amber">Market news</span>
+      </div>
+      <p style="margin-top:8px;">These signals appear <strong style="color:#fcd34d;">6–18 months</strong> before formal buying intent — but only if you're watching.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ SLIDE 2: SOLUTION -->
+<div class="slide s2" id="slide-2">
+  <div class="logo">AccessFox <span>Healthcare Account-Readiness Intelligence</span></div>
+  <div class="slide-number">02 / 04</div>
+
+  <div class="tag">The Solution</div>
+  <h2><span class="blue">AccessFox</span> turns live web signals into ranked account-readiness intelligence</h2>
+
+  <div class="two-col" style="margin-top:24px;">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="card highlight">
+        <h3 class="blue">Account Readiness Score</h3>
+        <p>0–100 signal-weighted score per organization, updated at query time from live web evidence — not static databases.</p>
+      </div>
+      <div class="card highlight">
+        <h3 class="blue">Evidence Ledger</h3>
+        <p>Each score is backed by a ledger of sourced signals: excerpts, dates, and clickable links to original sources.</p>
+      </div>
+      <div class="card highlight">
+        <h3 class="blue">Why Now · Recommended Action · Outreach Angle</h3>
+        <p>AI reasoning converts evidence into commercial guidance — urgency, next step, and messaging tailored to each account.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:20px;">
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div class="score-ring" style="border-color:#22c55e;color:#22c55e;box-shadow:0 0 20px rgba(34,197,94,0.3);">94</div>
+        <div>
+          <div style="font-size:15px;font-weight:700;">Memorial Sloan Kettering</div>
+          <div style="font-size:12px;color:#64748b;margin-top:4px;">
+            <span class="chip chip-blue">Clinical Trial</span>
+            <span class="chip chip-green">Facility Expansion</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div class="score-ring" style="border-color:#22c55e;color:#22c55e;">88</div>
+        <div>
+          <div style="font-size:15px;font-weight:700;">Mayo Clinic</div>
+          <div style="font-size:12px;color:#64748b;margin-top:4px;">
+            <span class="chip chip-blue">Equipment Inv.</span>
+            <span class="chip chip-amber">Regulatory</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div class="score-ring" style="border-color:#f59e0b;color:#f59e0b;">82</div>
+        <div>
+          <div style="font-size:15px;font-weight:700;">UCSF Medical Center</div>
+          <div style="font-size:12px;color:#64748b;margin-top:4px;">
+            <span class="chip chip-amber">Funding</span>
+            <span class="chip chip-blue">Partnership</span>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:#475569;text-align:center;margin-top:4px;">+ 5 more accounts ranked by readiness</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ SLIDE 3: DEMO WORKFLOW -->
+<div class="slide s3" id="slide-3">
+  <div class="logo">AccessFox <span>Healthcare Account-Readiness Intelligence</span></div>
+  <div class="slide-number">03 / 04</div>
+
+  <div class="tag">Demo Workflow</div>
+  <h2>From search query to ranked <span class="blue">account intelligence</span> in seconds</h2>
+  <p class="muted" style="font-size:16px;margin-bottom:28px;">Demo search: <span style="color:#e2e8f0;font-family:monospace;">radiopharmaceutical therapy / theranostics adoption readiness</span></p>
+
+  <div class="workflow-step">
+    <div class="step-num">1</div>
+    <div>
+      <div class="step-label">User enters a therapy or clinical program</div>
+      <div class="step-sub">Any advanced care program: theranostics, cell therapy, proton therapy, robotic surgery...</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="badge"><span class="dot dot-blue"></span>AccessFox</div>
+  </div>
+  <div class="workflow-step">
+    <div class="step-num" style="background:#065f46;">2</div>
+    <div>
+      <div class="step-label" style="color:#86efac;">Bright Data surfaces live public web signals</div>
+      <div class="step-sub">SERP API queries Google via live residential proxy infrastructure — real results, not cached</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="badge"><span class="dot"></span>Bright Data live web infrastructure</div>
+  </div>
+  <div class="workflow-step">
+    <div class="step-num" style="background:#4c1d95;">3</div>
+    <div>
+      <div class="step-label" style="color:#c4b5fd;">AI/ML layer extracts and scores account readiness</div>
+      <div class="step-sub">Parallel AI calls identify orgs, classify signals, generate Evidence Ledgers and commercial guidance</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="badge"><span class="dot dot-purple"></span>AIML API · GPT-4o</div>
+  </div>
+  <div class="workflow-step" style="border-color:#3b82f6;background:rgba(30,64,175,0.12);">
+    <div class="step-num" style="background:#1d4ed8;">4</div>
+    <div>
+      <div class="step-label">Ranked account cards with full evidence</div>
+      <div class="step-sub">Score · Evidence Ledger · Why Now · Recommended Action · Outreach Angle</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="badge" style="border-color:#3b82f6;"><span class="dot dot-blue"></span>GTM-ready output</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ SLIDE 4: IMPACT -->
+<div class="slide s4" id="slide-4">
+  <div class="logo">AccessFox <span>Healthcare Account-Readiness Intelligence</span></div>
+  <div class="slide-number">04 / 04</div>
+
+  <div class="tag">Bright Data + Enterprise Impact</div>
+  <h2>Live web data as a <span class="blue">competitive intelligence layer</span></h2>
+
+  <div class="three-col">
+    <div class="card green-hl">
+      <h3 class="green">🌐 Bright Data Layer</h3>
+      <p>Bright Data SERP API is the live web infrastructure. Every query pulls real-time Google results through residential proxy infrastructure — bypassing bot detection, delivering current public signals that no static database can match.</p>
+    </div>
+    <div class="card highlight">
+      <h3 class="blue">🤖 AI Reasoning Layer</h3>
+      <p>Parallel AI calls (AIML API) process URL batches simultaneously, identifying organizations, classifying signal types, and generating Account Readiness Scores, Evidence Ledgers, and commercial guidance.</p>
+    </div>
+    <div class="card" style="border-color:#8b5cf6;background:rgba(139,92,246,0.08);">
+      <h3 class="indigo">📊 Enterprise Output</h3>
+      <p>GTM, partnerships, and strategy teams get ranked, evidence-backed account lists — not leads, but accounts with proven signals of adoption readiness and clear commercial entry points.</p>
+    </div>
+  </div>
+
+  <div class="divider"/>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div>
+      <div style="font-size:14px;color:#64748b;margin-bottom:8px;">Extends beyond theranostics to any advanced healthcare market:</div>
+      <div>
+        <span class="chip chip-blue">Theranostics / RPT</span>
+        <span class="chip chip-purple">Cell Therapy</span>
+        <span class="chip chip-green">Proton Therapy</span>
+        <span class="chip chip-blue">Robotic Surgery</span>
+        <span class="chip chip-amber">Hospital-at-Home</span>
+        <span class="chip chip-purple">Medical AI</span>
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:28px;font-weight:800;color:#3b82f6;">AccessFox</div>
+      <div style="font-size:13px;color:#475569;">Healthcare account-readiness intelligence</div>
+      <div style="font-size:13px;color:#334155;margin-top:4px;">from live web signals</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /slides-container -->
+
+<nav class="nav" id="nav">
+  <button onclick="goTo(1)" id="btn-1">Problem</button>
+  <button onclick="goTo(2)" id="btn-2">Solution</button>
+  <button onclick="goTo(3)" id="btn-3">Demo</button>
+  <button onclick="goTo(4)" id="btn-4">Impact</button>
+  <span class="slide-counter" id="counter">1 / 4</span>
+</nav>
+
+<script>
+  let current = 1;
+  const container = document.getElementById('slides');
+  function goTo(n) {
+    current = n;
+    document.getElementById('slide-' + n).scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.nav button').forEach((b, i) => b.classList.toggle('active', i + 1 === n));
+    document.getElementById('counter').textContent = n + ' / 4';
+  }
+  container.addEventListener('scroll', () => {
+    const idx = Math.round(container.scrollTop / 720) + 1;
+    if (idx !== current && idx >= 1 && idx <= 4) { current = idx; goTo(idx); }
+  });
+  goTo(1);
+</script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="leftpanel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#111827;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:0"/>
+    </linearGradient>
+    <radialGradient id="orangeglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="blueglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="scoreGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="scoreAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="cardglow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="fadeBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow12">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <clipPath id="rightclip">
+      <rect x="680" y="0" width="920" height="900"/>
+    </clipPath>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Subtle dot grid -->
+  <g opacity="0.04">
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="#94a3b8"/>
+    </pattern>
+    <rect width="1600" height="900" fill="url(#dots)"/>
+  </g>
+
+  <!-- Orange glow behind left logo area -->
+  <ellipse cx="240" cy="180" rx="320" ry="240" fill="url(#orangeglow)"/>
+
+  <!-- Blue glow on right -->
+  <ellipse cx="1200" cy="500" rx="400" ry="300" fill="url(#blueglow)"/>
+
+  <!-- Left panel subtle bg -->
+  <rect x="0" y="0" width="700" height="900" fill="url(#leftpanel)"/>
+
+  <!-- ============================
+       LEFT: Branding
+  ============================= -->
+
+  <!-- Fox logo mark at (60, 48) -->
+  <g transform="translate(60, 48)">
+    <!-- Left ear -->
+    <polygon points="8,40 0,4 28,28" fill="#f97316"/>
+    <!-- Right ear -->
+    <polygon points="60,40 68,4 40,28" fill="#f97316"/>
+    <!-- Inner ear left -->
+    <polygon points="12,36 5,10 26,27" fill="#fbbf24" opacity="0.7"/>
+    <!-- Inner ear right -->
+    <polygon points="56,36 63,10 42,27" fill="#fbbf24" opacity="0.7"/>
+    <!-- Head -->
+    <ellipse cx="34" cy="54" rx="30" ry="28" fill="#f97316"/>
+    <!-- White muzzle -->
+    <ellipse cx="34" cy="62" rx="16" ry="13" fill="#fef3c7"/>
+    <!-- Left eye -->
+    <circle cx="22" cy="48" r="7" fill="white"/>
+    <circle cx="23" cy="49" r="3.5" fill="#1e293b"/>
+    <circle cx="24.5" cy="47.5" r="1.2" fill="white" opacity="0.8"/>
+    <!-- Right eye -->
+    <circle cx="46" cy="48" r="7" fill="white"/>
+    <circle cx="47" cy="49" r="3.5" fill="#1e293b"/>
+    <circle cx="48.5" cy="47.5" r="1.2" fill="white" opacity="0.8"/>
+    <!-- Nose -->
+    <ellipse cx="34" cy="60" rx="4" ry="3" fill="#7c2d12"/>
+  </g>
+
+  <!-- AccessFox wordmark -->
+  <text x="148" y="108" font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1.5">Access<tspan fill="#f97316">Fox</tspan></text>
+
+  <!-- Category label -->
+  <rect x="60" y="128" width="194" height="24" rx="12" fill="#1c1917" stroke="#f97316" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="76" cy="140" r="4" fill="#f97316"/>
+  <text x="86" y="145" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600" fill="#fdba74" letter-spacing="0.8">HEALTHCARE INTELLIGENCE</text>
+
+  <!-- Main headline -->
+  <text x="60" y="224" font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif" font-size="42" font-weight="700" fill="white" letter-spacing="-0.5">Account-Readiness</text>
+  <text x="60" y="274" font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif" font-size="42" font-weight="700" fill="white" letter-spacing="-0.5">Intelligence from</text>
+  <text x="60" y="324" font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif" font-size="42" font-weight="700" letter-spacing="-0.5">
+    <tspan fill="#f97316">Live Web Signals</tspan>
+  </text>
+
+  <!-- Divider -->
+  <line x1="60" y1="354" x2="580" y2="354" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Feature rows -->
+  <g transform="translate(60, 380)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="36" height="36" rx="8" fill="#1c1917" stroke="#f97316" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="18" y="24" font-family="system-ui" font-size="18" text-anchor="middle">📊</text>
+    <text x="50" y="15" font-family="system-ui,-apple-system,sans-serif" font-size="15" font-weight="600" fill="white">Account Readiness Score</text>
+    <text x="50" y="33" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#64748b">Signal-weighted 0–100 score from live public web evidence</text>
+
+    <!-- Row 2 -->
+    <rect x="0" y="52" width="36" height="36" rx="8" fill="#0f1f3d" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="18" y="76" font-family="system-ui" font-size="18" text-anchor="middle">📋</text>
+    <text x="50" y="67" font-family="system-ui,-apple-system,sans-serif" font-size="15" font-weight="600" fill="white">Evidence Ledger</text>
+    <text x="50" y="85" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#64748b">Sourced signals with dates and clickable links to original pages</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="104" width="36" height="36" rx="8" fill="#1a1a2e" stroke="#6366f1" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="18" y="128" font-family="system-ui" font-size="18" text-anchor="middle">⚡</text>
+    <text x="50" y="119" font-family="system-ui,-apple-system,sans-serif" font-size="15" font-weight="600" fill="white">Why Now · Action · Outreach</text>
+    <text x="50" y="137" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#64748b">AI-synthesized commercial intelligence per account</text>
+  </g>
+
+  <!-- Powered by -->
+  <g transform="translate(60, 580)">
+    <text x="0" y="0" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600" fill="#475569" letter-spacing="1.5">POWERED BY</text>
+    <!-- Bright Data badge -->
+    <rect x="0" y="12" width="188" height="36" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.5"/>
+    <circle cx="18" cy="30" r="5" fill="#22c55e"/>
+    <circle cx="18" cy="30" r="8" fill="#22c55e" opacity="0.2"/>
+    <text x="32" y="26" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="700" fill="#93c5fd">BRIGHT DATA</text>
+    <text x="32" y="40" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#475569">Live Web Infrastructure</text>
+    <!-- AIML badge -->
+    <rect x="200" y="12" width="148" height="36" rx="8" fill="#0f172a" stroke="#6366f1" stroke-width="1" stroke-opacity="0.5"/>
+    <rect x="214" y="22" width="16" height="16" rx="3" fill="#6366f1" opacity="0.6"/>
+    <text x="218" y="33" font-family="system-ui,-apple-system,sans-serif" font-size="9" font-weight="800" fill="white">AI</text>
+    <text x="238" y="26" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="700" fill="#a5b4fc">AIML API</text>
+    <text x="238" y="40" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#475569">GPT-4o Enrichment</text>
+  </g>
+
+  <!-- URL at bottom left -->
+  <text x="60" y="856" font-family="system-ui,-apple-system,sans-serif" font-size="14" fill="#334155">accessfox.vercel.app</text>
+
+  <!-- ============================
+       RIGHT: Product UI Preview
+  ============================= -->
+  <g clip-path="url(#rightclip)">
+
+    <!-- Background panel -->
+    <rect x="700" y="0" width="900" height="900" fill="#0d1526" opacity="0.6"/>
+
+    <!-- Header mock -->
+    <rect x="720" y="32" width="840" height="56" rx="10" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+    <circle cx="754" cy="60" r="14" fill="#f97316" opacity="0.15"/>
+    <circle cx="754" cy="60" r="8" fill="#f97316" opacity="0.3"/>
+    <circle cx="754" cy="60" r="4" fill="#f97316"/>
+    <text x="774" y="56" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="800" fill="white">Access<tspan fill="#f97316">Fox</tspan></text>
+    <text x="774" y="73" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#475569">Healthcare account-readiness intelligence</text>
+    <!-- Live badge in header -->
+    <rect x="1390" y="43" width="148" height="26" rx="13" fill="#052e16" stroke="#166534" stroke-width="1"/>
+    <circle cx="1406" cy="56" r="4" fill="#22c55e"/>
+    <text x="1416" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600" fill="#4ade80">Live via Bright Data</text>
+
+    <!-- CARD 1 — MSK (top ranked, full detail) -->
+    <rect x="720" y="108" width="840" height="222" rx="12" fill="#111827" stroke="#1e3a5f" stroke-width="1.5" filter="url(#shadow)"/>
+    <!-- Top orange accent line -->
+    <rect x="720" y="108" width="840" height="3" rx="1.5" fill="url(#cardglow)" opacity="0"/>
+    <rect x="720" y="108" width="840" height="3" rx="1.5" fill="#f97316" opacity="0.4"/>
+    <!-- Rank #1 -->
+    <circle cx="756" cy="137" r="20" fill="#4f46e5"/>
+    <text x="756" y="143" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">#1</text>
+    <!-- Org info -->
+    <text x="790" y="130" font-family="system-ui,-apple-system,sans-serif" font-size="17" font-weight="700" fill="white">Memorial Sloan Kettering Cancer Center</text>
+    <text x="790" y="149" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b">Academic Medical Center · New York, NY</text>
+    <!-- Signal chips -->
+    <rect x="790" y="158" width="96" height="20" rx="10" fill="#1e3a5f"/>
+    <text x="838" y="172" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="600" fill="#93c5fd" text-anchor="middle">Clinical Trial</text>
+    <rect x="895" y="158" width="110" height="20" rx="10" fill="#14201a"/>
+    <text x="950" y="172" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="600" fill="#86efac" text-anchor="middle">Facility Expansion</text>
+    <rect x="1014" y="158" width="60" height="20" rx="10" fill="#2d1a1a"/>
+    <text x="1044" y="172" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="600" fill="#fca5a5" text-anchor="middle">Hiring</text>
+    <!-- Evidence Ledger header -->
+    <text x="790" y="202" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#475569" letter-spacing="1.5">EVIDENCE LEDGER</text>
+    <!-- Evidence items -->
+    <rect x="790" y="210" width="3" height="14" rx="1.5" fill="#3b82f6"/>
+    <text x="800" y="221" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#94a3b8">🧪 Phase III Lu-177 PSMA trial open — 340 enrollments · clinicaltrials.gov · Jan 2025</text>
+    <rect x="790" y="230" width="3" height="14" rx="1.5" fill="#22c55e"/>
+    <text x="800" y="241" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#94a3b8">🏗️ $180M Nuclear Medicine Center investment announced · mskcc.org · Mar 2025</text>
+    <rect x="790" y="250" width="3" height="14" rx="1.5" fill="#f97316"/>
+    <text x="800" y="261" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#94a3b8">💼 12 open roles: Nuclear Medicine Physicist, RPT Coordinator · linkedin.com · Apr 2025</text>
+    <!-- Why Now / Action strip -->
+    <rect x="790" y="276" width="600" height="38" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <text x="804" y="292" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#f97316">WHY NOW</text>
+    <text x="854" y="292" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8">Active trial + facility investment = peak readiness window before volume ramp</text>
+    <text x="804" y="308" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#6366f1">ACTION</text>
+    <text x="851" y="308" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8">Request intro to Nuclear Medicine Chief via RPT trial PI — timing is optimal</text>
+    <!-- Score ring -->
+    <circle cx="1490" cy="219" r="52" fill="none" stroke="#1e293b" stroke-width="8"/>
+    <circle cx="1490" cy="219" r="52" fill="none" stroke="url(#scoreGreen)" stroke-width="8"
+      stroke-dasharray="277 50" stroke-linecap="round" transform="rotate(-90 1490 219)"/>
+    <text x="1490" y="211" font-family="system-ui,-apple-system,sans-serif" font-size="26" font-weight="800" fill="#4ade80" text-anchor="middle">94</text>
+    <text x="1490" y="230" font-family="system-ui,-apple-system,sans-serif" font-size="9" font-weight="600" fill="#475569" text-anchor="middle" letter-spacing="1">SCORE</text>
+
+    <!-- CARD 2 — Mayo Clinic -->
+    <rect x="720" y="350" width="840" height="160" rx="12" fill="#111827" stroke="#1e293b" stroke-width="1" filter="url(#shadow)"/>
+    <circle cx="756" cy="379" r="20" fill="#6366f1" opacity="0.8"/>
+    <text x="756" y="385" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">#2</text>
+    <text x="790" y="372" font-family="system-ui,-apple-system,sans-serif" font-size="17" font-weight="700" fill="white">Mayo Clinic</text>
+    <text x="790" y="390" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b">Academic Medical Center · Rochester, MN</text>
+    <rect x="790" y="400" width="108" height="20" rx="10" fill="#1e2d40"/>
+    <text x="844" y="414" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="600" fill="#7dd3fc" text-anchor="middle">Equipment Inv.</text>
+    <rect x="906" y="400" width="96" height="20" rx="10" fill="#1e3a5f"/>
+    <text x="954" y="414" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="600" fill="#93c5fd" text-anchor="middle">Clinical Trial</text>
+    <text x="790" y="440" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#94a3b8">⚙️ 4 new SPECT/CT systems + dedicated hot lab suite commissioned · mayoclinic.org</text>
+    <text x="790" y="458" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#94a3b8">📋 FDA IND approval granted for Ac-225 PSMA program · Jan 2025</text>
+    <rect x="790" y="470" width="480" height="26" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <text x="804" y="487" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#f97316">WHY NOW</text>
+    <text x="854" y="487" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#64748b">IND approval + new equipment signals immediate clinical expansion readiness</text>
+    <circle cx="1490" cy="430" r="42" fill="none" stroke="#1e293b" stroke-width="7"/>
+    <circle cx="1490" cy="430" r="42" fill="none" stroke="url(#scoreGreen)" stroke-width="7"
+      stroke-dasharray="220 44" stroke-linecap="round" transform="rotate(-90 1490 430)"/>
+    <text x="1490" y="423" font-family="system-ui,-apple-system,sans-serif" font-size="21" font-weight="800" fill="#4ade80" text-anchor="middle">88</text>
+    <text x="1490" y="440" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#475569" text-anchor="middle" letter-spacing="1">SCORE</text>
+
+    <!-- CARD 3 — UCSF, faded -->
+    <rect x="720" y="530" width="840" height="124" rx="12" fill="#0e1520" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
+    <circle cx="756" cy="557" r="20" fill="#8b5cf6" opacity="0.6"/>
+    <text x="756" y="563" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">#3</text>
+    <text x="790" y="550" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="700" fill="#cbd5e1">UCSF Medical Center</text>
+    <text x="790" y="568" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155">Academic Medical Center · San Francisco, CA</text>
+    <rect x="790" y="578" width="72" height="20" rx="10" fill="#1c1025"/>
+    <text x="826" y="592" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="600" fill="#d8b4fe" text-anchor="middle">Funding</text>
+    <rect x="870" y="578" width="110" height="20" rx="10" fill="#14201a" opacity="0.8"/>
+    <text x="925" y="592" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="600" fill="#6ee7b7" text-anchor="middle">Facility Expansion</text>
+    <text x="790" y="618" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#475569">💰 $42M NIH grant for Theranostics Research Center · nih.gov</text>
+    <text x="790" y="636" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#475569">🏗️ 8,000 sq ft RPT Center groundbreaking at Mission Bay campus · ucsf.edu</text>
+    <circle cx="1490" cy="592" r="36" fill="none" stroke="#1e293b" stroke-width="6"/>
+    <circle cx="1490" cy="592" r="36" fill="none" stroke="url(#scoreAmber)" stroke-width="6"
+      stroke-dasharray="175 51" stroke-linecap="round" transform="rotate(-90 1490 592)"/>
+    <text x="1490" y="586" font-family="system-ui,-apple-system,sans-serif" font-size="18" font-weight="800" fill="#fbbf24" text-anchor="middle">82</text>
+    <text x="1490" y="602" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#475569" text-anchor="middle" letter-spacing="1">SCORE</text>
+
+    <!-- More accounts teaser -->
+    <rect x="720" y="672" width="840" height="48" rx="10" fill="#0a0f1e" stroke="#1e293b" stroke-width="1" opacity="0.7"/>
+    <!-- mini score bars -->
+    <g transform="translate(750, 686)">
+      <text x="0" y="16" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155">#4 MD Anderson</text>
+      <rect x="160" y="8" width="80" height="8" rx="4" fill="#1e293b"/>
+      <rect x="160" y="8" width="63" height="8" rx="4" fill="#22c55e" opacity="0.5"/>
+      <text x="248" y="17" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#475569">79</text>
+
+      <text x="290" y="16" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155">#5 Johns Hopkins</text>
+      <rect x="460" y="8" width="80" height="8" rx="4" fill="#1e293b"/>
+      <rect x="460" y="8" width="59" height="8" rx="4" fill="#f59e0b" opacity="0.5"/>
+      <text x="548" y="17" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#475569">74</text>
+
+      <text x="590" y="16" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155">+ 3 more ranked accounts</text>
+    </g>
+
+    <!-- Fade to bottom -->
+    <rect x="700" y="720" width="900" height="180" fill="url(#fadeBottom)"/>
+
+  </g>
+
+  <!-- Bottom strip -->
+  <rect x="0" y="858" width="1600" height="42" fill="#070b14"/>
+  <line x1="0" y1="858" x2="1600" y2="858" stroke="#1e293b" stroke-width="1"/>
+  <!-- Feature tags -->
+  <g font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#374151">
+    <text x="60" y="884">Account Readiness Score</text>
+    <text x="240" y="884">·</text>
+    <text x="252" y="884">Evidence Ledger</text>
+    <text x="380" y="884">·</text>
+    <text x="392" y="884">Why Now Reasoning</text>
+    <text x="548" y="884">·</text>
+    <text x="560" y="884">Recommended Action</text>
+    <text x="726" y="884">·</text>
+    <text x="738" y="884">Outreach Angle</text>
+    <text x="868" y="884">·</text>
+    <text x="880" y="884">Live Bright Data Signals</text>
+    <text x="1066" y="884">·</text>
+    <text x="1078" y="884">GPT-4o AI Enrichment</text>
+  </g>
+  <text x="1540" y="884" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1d4ed8" text-anchor="end">accessfox.vercel.app</text>
+
+</svg>
