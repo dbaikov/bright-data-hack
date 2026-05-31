@@ -4,7 +4,7 @@
 
 AccessFox helps enterprise GTM and strategy teams identify which hospitals and health systems are becoming ready to adopt advanced therapies — *before* that readiness shows up in CRM systems or static market reports.
 
-**Live demo:** [accessfox.vercel.app](https://accessfox.vercel.app)
+**Live demo:** https://accessfox.vercel.app
 
 ![AccessFox demo](submission/demo.png)
 
@@ -31,8 +31,10 @@ The demo ships with a radiopharmaceutical therapy / theranostics use case, but t
 ## Hackathon
 
 **Bright Data AI Agents & Web Data Hackathon**
-Track: GTM Intelligence / Enterprise AI
-Submission: [lablab.ai](https://lablab.ai/ai-hackathons/brightdata-ai-agents-web-data-hackathon)
+
+- Track: GTM Intelligence / Enterprise AI
+- Live app: https://accessfox.vercel.app
+- Submission: https://lablab.ai/ai-hackathons/brightdata-ai-agents-web-data-hackathon/evidence-works/accessfox
 
 ---
 
@@ -45,7 +47,7 @@ lib/brightdata.ts
 ```
 
 - Proxy endpoint: `brd.superproxy.io:33335` (HTTPS)
-- Transport: `undici` `ProxyAgent` with `proxyTls` and `requestTls` set to bypass Bright Data's TLS interception certificate
+- Transport: `undici` `ProxyAgent` with `proxyTls` and `requestTls` configured to handle Bright Data's TLS interception certificate
 - Queries are dynamically built from the user's search term
 - Returns up to 20 structured results with URLs and text excerpts
 - Live badge visible in UI: **● Live Web Signals via Bright Data**
@@ -61,7 +63,7 @@ lib/ai.ts
 
 - Provider: **AIML API** (OpenAI-compatible endpoint)
 - Model: **GPT-4o**
-- Input: up to 15 URLs from Bright Data SERP results (filtered to hospital/health system domains)
+- Input: up to 15 URLs from Bright Data SERP results, filtered to hospital and health system domains
 - Processing: 3 parallel batches of 5 URLs each via `Promise.allSettled` (~15s vs ~55s sequential)
 - Output: structured `Organization` objects with score, evidence, reasoning, and commercial intelligence
 - 20-second timeout per batch; failures are isolated — partial results always returned
@@ -158,10 +160,13 @@ Bonuses applied for recency (signals dated within 90 days) and signal diversity 
 
 ---
 
-## Demo
+## Demo Flow
 
-**[accessfox.vercel.app](https://accessfox.vercel.app)**
-
-1. Enter a therapy or market (e.g. `radiopharmaceutical therapy`, `cell therapy`, `hospital-at-home`)
-2. Click **Find Expansion Opportunities**
-3. Review ranked account cards with scores, evidence, and commercial intelligence
+1. Open https://accessfox.vercel.app
+2. Enter a therapy or market, for example:
+   - `radiopharmaceutical therapy`
+   - `theranostics adoption readiness`
+   - `cell therapy`
+   - `hospital-at-home`
+3. Click **Find Expansion Opportunities**
+4. Review ranked account cards with readiness scores, evidence, and commercial intelligence
